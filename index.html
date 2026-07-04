@@ -4,16 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wich Portfolio</title>
+    <!-- Google Fonts & Font Awesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* --- RESET & VARIABLES --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', 'Kanit', sans-serif;
             scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(#4facfe, #00f2fe);
+            border-radius: 10px;
         }
 
         :root {
@@ -29,6 +42,390 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* --- NAVBAR --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 25px 10%;
+            background: rgba(6, 6, 8, 0.75);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10%;
+            padding-top: 80px;
+            background: radial-gradient(circle at 85% 30%, rgba(0, 242, 254, 0.08), transparent 50%),
+                        radial-gradient(circle at 15% 80%, rgba(79, 172, 254, 0.05), transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .age-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(0, 242, 254, 0.06);
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            border-radius: 50px;
+            color: var(--accent-cyan);
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 30px;
+            background: linear-gradient(to right, #fff 40%, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* PROFILE IMAGE CONTAINER */
+        .profile-area {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-glow {
+            width: 340px;
+            height: 340px;
+            background: var(--gradient-primary);
+            border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+            position: absolute;
+            filter: blur(30px);
+            opacity: 0.45;
+            animation: morph 10s ease-in-out infinite alternate;
+        }
+
+        .profile-img {
+            width: 320px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+            border: 4px solid rgba(255, 255, 255, 0.08);
+            animation: morph 10s ease-in-out infinite alternate;
+            z-index: 1;
+            background: #1e1e24;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes morph {
+            0% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; }
+            50% { border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%; }
+            100% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; }
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            background: var(--gradient-primary);
+            color: #020617;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(0, 242, 254, 0.25);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 242, 254, 0.45);
+        }
+
+        /* --- SECTION FORMAT --- */
+        section {
+            padding: 120px 10% 100px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 70px;
+            position: relative;
+            letter-spacing: 1px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+        }
+
+        /* --- ABOUT ME --- */
+        .about-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background-color: var(--card-bg);
+            padding: 40px 35px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0;
+            z-index: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 242, 254, 0.25);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 25px rgba(0, 242, 254, 0.03);
+        }
+
+        .info-card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-card i {
+            font-size: 2.2rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        .info-card h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .info-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-size: 0.98rem;
+        }
+
+        /* --- SKILLS --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .skill-item {
+            background: var(--card-bg);
+            padding: 35px 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            transition: all 0.4s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(24a, 255, 255, 0.15);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill-item i {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .skill-basketball i {
+            color: #ff7a00;
+            filter: drop-shadow(0 0 12px rgba(255, 122, 0, 0.35));
+        }
+
+        .skill-tech i {
+            color: var(--accent-cyan);
+            filter: drop-shadow(0 0 12px rgba(0, 242, 254, 0.35));
+        }
+
+        .skill-item h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .skill-item p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
+        /* --- CONTACT --- */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            max-width: 650px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+            padding: 16px 28px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-link.ig:hover {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            border-color: transparent;
+            box-shadow: 0 8px 20px rgba(220, 39, 67, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .phone-display {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            font-weight: 500;
+            padding: 16px 28px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.01);
+            width: 100%;
+            justify-content: center;
+            border: 1px dashed rgba(255, 255, 255, 0.08);
+        }
+
+        .phone-display i {
+            color: var(--accent-cyan);
+            font-size: 1.1rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            letter-spacing: 0.5px;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 968px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                justify-content: center;
+                gap: 50px;
+                padding-top: 140px;
+                padding-bottom: 60px;
+            }
+            .hero-content h1 { font-size: 3rem; }
+            .nav-links { display: none; }
+            section { padding: 80px 6% 60px; }
         }
 
         /* ส่วนเพื่อนร่วมทีมฝากข้อความ */
@@ -57,6 +454,83 @@
 </head>
 <body>
 
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">WICH.DEV</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="age-badge">
+                <i class="fa-solid fa-bolt"></i> อายุ 19 ปี
+            </div>
+            <h1>เนติวิทย์ คงอุตสาห์</h1>
+            <a href="#contact" class="btn">Connect With Me</a>
+        </div>
+        <div class="profile-area">
+            <div class="profile-glow"></div>
+            <img src="wich.jpg" alt="Netiwit Profile" class="profile-img">
+        </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section id="about">
+        <h2 class="section-title">เกี่ยวกับฉัน</h2>
+        <div class="about-container">
+            <div class="info-card">
+                <div class="info-card-content">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <h4>การศึกษา</h4>
+                    <p>วิทยาลัยอาชีวศึกษาชลบุรี<br>สาขาเทคโนโลยีสารสนเทศ (IT)</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <div class="info-card-content">
+                    <i class="fa-solid fa-user"></i>
+                    <h4>ประวัติย่อ</h4>
+                    <p>ชื่อเล่น "วิช" อายุ 19 ปี มีความสนใจและมุ่งมั่นในการเรียนรู้ระบบเครือข่ายและการพัฒนาเว็บสไตล์โมเดิร์น</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+        <h2 class="section-title">ความสามารถ & ทักษะ</h2>
+        <div class="skills-grid">
+            <div class="skill-item skill-basketball">
+                <i class="fa-solid fa-basketball"></i>
+                <h3>Basketball</h3>
+                <p>กีฬาบาสเกตบอล เสริมสร้างการทำงานเป็นทีม (Teamwork) และการโฟกัสเป้าหมาย</p>
+            </div>
+            <div class="skill-item skill-tech">
+                <i class="fa-solid fa-code"></i>
+                <h3>IT & Technology</h3>
+                <p>ทักษะด้านเทคโนโลยีสารสนเทศ การคิดวิเคราะห์ระบบ และการเขียนโค้ดพัฒนาเว็บ</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <h2 class="section-title">ช่องทางการติดต่อ</h2>
+        <div class="contact-container">
+            <a href="https://instagram.com/sxnd_w" target="_blank" class="social-link ig">
+                <i class="fa-brands fa-instagram"></i> Instagram
+            </a>
+            <div class="phone-display">
+                <i class="fa-solid fa-phone"></i> 095-749-8938
+            </div>
+        </div>
+    </section>
+
     <!-- เพื่อนร่วมทีมฝากข้อความ -->
     <section class="team-messages">
         <h2>เพื่อนร่วมทีมฝากข้อความ</h2>
@@ -64,6 +538,11 @@
             <strong>ยังไม่มีข้อความจากเพื่อน</strong>
         </div>
     </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Netiwit Kongutsah. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>
