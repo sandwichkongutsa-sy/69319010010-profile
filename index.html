@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wich Portfolio</title>
-    <!-- Google Fonts & Font Awesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -314,7 +313,7 @@
 
         .skill-item:hover {
             transform: translateY(-5px);
-            border-color: rgba(24a, 255, 255, 0.15);
+            border-color: rgba(0, 242, 254, 0.15);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
         }
 
@@ -403,6 +402,37 @@
             font-size: 1.1rem;
         }
 
+        /* --- GUESTBOOK / TEAM MESSAGES --- */
+        .team-messages {
+            padding: 80px 10%;
+            background: var(--card-bg);
+            margin: 60px 10% 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 242, 254, 0.1);
+        }
+
+        .team-messages h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--accent-cyan);
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .message {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 25px;
+            margin: 15px 0;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-cyan);
+            text-align: center;
+        }
+
+        .message strong {
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
         /* --- FOOTER --- */
         footer {
             text-align: center;
@@ -426,35 +456,12 @@
             .hero-content h1 { font-size: 3rem; }
             .nav-links { display: none; }
             section { padding: 80px 6% 60px; }
-        }
-
-        /* ส่วนเพื่อนร่วมทีมฝากข้อความ */
-        .team-messages {
-            padding: 80px 10%;
-            background: var(--card-bg);
-            margin: 40px 10%;
-            border-radius: 20px;
-            border: 1px solid rgba(0, 242, 254, 0.2);
-        }
-
-        .team-messages h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            color: var(--accent-cyan);
-        }
-
-        .message {
-            background: rgba(255,255,255,0.03);
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 12px;
-            border-left: 4px solid var(--accent-cyan);
+            .team-messages { margin: 40px 5%; padding: 40px 5%; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <nav>
         <div class="logo">WICH.DEV</div>
         <ul class="nav-links">
@@ -465,7 +472,6 @@
         </ul>
     </nav>
 
-    <!-- HERO SECTION -->
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="age-badge">
@@ -480,7 +486,6 @@
         </div>
     </section>
 
-    <!-- ABOUT ME SECTION -->
     <section id="about">
         <h2 class="section-title">เกี่ยวกับฉัน</h2>
         <div class="about-container">
@@ -501,7 +506,6 @@
         </div>
     </section>
 
-    <!-- SKILLS SECTION -->
     <section id="skills">
         <h2 class="section-title">ความสามารถ & ทักษะ</h2>
         <div class="skills-grid">
@@ -518,7 +522,6 @@
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
     <section id="contact">
         <h2 class="section-title">ช่องทางการติดต่อ</h2>
         <div class="contact-container">
@@ -531,15 +534,13 @@
         </div>
     </section>
 
-    <!-- เพื่อนร่วมทีมฝากข้อความ -->
     <section class="team-messages">
         <h2>เพื่อนร่วมทีมฝากข้อความ</h2>
         <div class="message">
             <strong>ยังไม่มีข้อความจากเพื่อน</strong>
-        </div>
+            </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <p>&copy; 2026 Netiwit Kongutsah. All Rights Reserved.</p>
     </footer>
